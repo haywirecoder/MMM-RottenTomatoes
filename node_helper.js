@@ -12,6 +12,7 @@
  * MIT Licensed.
  */
 
+var NodeHelper = require("node_helper");
 // call in the required classes
 var RTS = require("rt-scraper");
 

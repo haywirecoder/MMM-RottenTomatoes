@@ -12,7 +12,7 @@
  * MIT Licensed.
  */
 
-Module.register("MMM-RottenTomatoes", {
+    Module.register("MMM-RottenTomatoes", {
 	// setup the default config options
 	defaults: {		
 		// optional
@@ -77,7 +77,21 @@ Module.register("MMM-RottenTomatoes", {
 		if (theScore.indexOf('%') == -1)
 			return '--';
 		else
-			return theScore;
+		{
+			var tomatorscore = 0;
+			for (var cIndex = 0;  theScore.indexOf('%')  > cIndex; cIndex++)
+				tomatorscore = tomatorscore + theScore[cIndex];
+
+			var tomatoImage = "<img src=./modules/MMM-RottenTomatoes/images/splat.png> ";
+			if (tomatorscore > 60) {
+				tomatoImage = "<img src=./modules/MMM-RottenTomatoes/images/fresh.png> ";
+			}
+
+			if (tomatorscore > 75) {
+				tomatoImage = "<img src=./modules/MMM-RottenTomatoes/images/certified.png> ";
+			}
+		}
+			return  tomatoImage + theScore;
 	},
 	//
 	cleanTitle: function(theTitle) {
@@ -103,7 +117,7 @@ Module.register("MMM-RottenTomatoes", {
 			return wrapper;			
 		}
 		var titleSize = 'xsmall';
-		var movieSize = 'xsmall';
+		var movieSize = 'small';
 		var wrapper = document.createElement("table");
 		// do opening this week
 		var allOTWandCSRows = [ ];
@@ -125,7 +139,10 @@ Module.register("MMM-RottenTomatoes", {
 				var otwRowTR = document.createElement("tr");	
 				otwRowTR.className = movieSize;
 				var otwRowMeter = document.createElement("td");
-				otwRowMeter.innerHTML = this.cleanScore(cOTW.meter) + "&nbsp;&nbsp;";
+				otwRowMeter.innerHTML = this.cleanScore(cOTW.meter);
+				otwRowMeter.width = "80px"
+				otwRowMeter.cellpadding = "0px"
+				otwRowMeter.cellspacing = "0px"
 				otwRowTR.appendChild(otwRowMeter);
 				var otwRowTitle = document.createElement("td");
 				otwRowTitle.innerHTML = this.cleanTitle(cOTW.title) + "&nbsp;&nbsp;";
@@ -155,7 +172,10 @@ Module.register("MMM-RottenTomatoes", {
 				var csRowTR = document.createElement("tr");	
 				csRowTR.className = movieSize;
 				var csRowMeter = document.createElement("td");
-				csRowMeter.innerHTML = this.cleanScore(ccs.meter) + "&nbsp;&nbsp;";
+				csRowMeter.innerHTML = this.cleanScore(ccs.meter);
+				csRowMeter.width = "80px"
+				csRowMeter.cellpadding = "0px"
+				csRowMeter.cellspacing = "0px"
 				csRowTR.appendChild(csRowMeter);
 				var csRowTitle = document.createElement("td");
 				csRowTitle.innerHTML = this.cleanTitle(ccs.title) + "&nbsp;&nbsp;";
@@ -186,7 +206,10 @@ Module.register("MMM-RottenTomatoes", {
 				var boRowTR = document.createElement("tr");	
 				boRowTR.className = movieSize;
 				var boRowMeter = document.createElement("td");
-				boRowMeter.innerHTML = this.cleanScore(cbo.meter) + "&nbsp;&nbsp;";
+				boRowMeter.innerHTML = this.cleanScore(cbo.meter);
+				boRowMeter.width = "80px"
+				boRowMeter.cellpadding = "0px"
+				boRowMeter.cellspacing = "0px"
 				boRowTR.appendChild(boRowMeter);
 				var boRowTitle = document.createElement("td");
 				boRowTitle.innerHTML = this.cleanTitle(cbo.title) + "&nbsp;&nbsp;";
