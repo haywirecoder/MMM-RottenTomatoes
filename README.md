@@ -3,7 +3,7 @@ The `MMM-RottenTomatoes` module is designed to, without any API keys, show movie
 
 Example:
 
-![Full](images/example.jpg) 
+![Full](images/rottentomatoes.PNG) 
 
 ## Dependencies / Requirements
 
