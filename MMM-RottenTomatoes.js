@@ -216,7 +216,7 @@
 				boRowTitle.align = 'left';
 				boRowTR.appendChild(boRowTitle);
 				var boRowGross = document.createElement("td");
-				boRowGross.innerHTML = "&nbsp;&nbsp;" + cbo.gross;
+				boRowGross.innerHTML = "&nbsp;&nbsp;" + cbo.date;
 				boRowTR.appendChild(boRowGross);
 				boRows.push(boRowTR);
 			}
